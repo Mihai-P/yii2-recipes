@@ -15,22 +15,18 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <?php 
-        if (is_array($recipes)) {
-            if(count($recipes) > 0) {
-                foreach($recipes as $recipe) { 
+        if (is_array($recipe)) {
         ?>
             <div class="alert alert-success">
                 You can cook a <?=$recipe['name'] ?>
             </div>
-        <?php 
-                }
-            } else {
-        ?>
+    <?php 
+        } else {
+    ?>
             <div class="alert alert-danger">
-                You cannot cook anything with what you have in the fridge.
+                Order Takeout.
             </div>
-        <?php 
-            }
+    <?php 
         } 
     ?>
 

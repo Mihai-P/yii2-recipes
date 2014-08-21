@@ -97,7 +97,7 @@ class RecipeForm extends Model
                 }
                 $useBy = \DateTime::createFromFormat('d/m/Y', $columns[3])->format('Y-m-d');
                 if($useBy >= $today) {
-                    $this->fridge[$columns[0]] = ['item' => $columns[0], 'amount' => $columns[1], 'unit' => $columns[2], 'use-by' => $columns[3]];
+                    $this->fridge[$columns[0]] = ['item' => $columns[0], 'amount' => $columns[1], 'unit' => $columns[2], 'use-by' => $useBy];
                 }
             });
             $lexer->parse($filename, $interpreter);
@@ -127,16 +127,19 @@ class RecipeForm extends Model
         $recipes = [];
         foreach($this->recipes as $recipe) {
             $valid = true;
+            $recipe_date = "2020-10-10";
             foreach($recipe['ingredients'] as $ingredient) {
-                print_r($ingredient);
                 if(!isset($this->fridge[$ingredient['item']]) || $this->fridge[$ingredient['item']]['amount'] < $ingredient['amount']) {
                     $valid = false;
+                } elseif($recipe_date > $this->fridge[$ingredient['item']]['use-by']) {
+                    $recipe_date = $this->fridge[$ingredient['item']]['use-by'];
                 }
             }
             if($valid) {
-                $recipes[] = $recipe;
+                $recipes[$recipe_date] = $recipe;
             }
         }
-        return $recipes;
+        ksort($recipes);
+        return array_shift($recipes);
     }
 }

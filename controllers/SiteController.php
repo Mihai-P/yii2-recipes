@@ -24,19 +24,19 @@ class SiteController extends Controller
     public function actionIndex()
     {
         $model = new RecipeForm();
-        $recipes = false;
+        $recipe = false;
         if (Yii::$app->request->isPost) {
             $model->load(Yii::$app->request->post());
             $model->file = UploadedFile::getInstance($model, 'file');
 
             if ($model->validate()) {
-                $recipes = $model->findRecipes();
+                $recipe = $model->findRecipes();
             } 
         }
 
         return $this->render('index', [
             'model' => $model,
-            'recipes' => $recipes,
+            'recipe' => $recipe,
         ]);
     }
 
