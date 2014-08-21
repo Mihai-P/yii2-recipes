@@ -39,14 +39,6 @@ class HomeFormTest extends TestCase
         $this->specify('model returns a result', function () use ($model, $recipes) {
             expect('model is valid', $model->validate())->true();
             expect('recipes is an array', is_array($recipes))->true();
-            expect('there is 1 recipe in the result', count($recipes)==1)->true();
         });
-
-        
-        
-
-        
-
-        
     }
 }
