@@ -83,7 +83,7 @@ $this->params['breadcrumbs'][] = $this->title;
             </ul>
             <h2>Recipes</h2>
             <p>I ignore the unit types because I do not know any rules to tranform an item from 1 unit type to another. I assumed that each item has only 1 possible unit type.</p>
-
+            <p>For huge lists of recipes and fridge contents there are better ways to find the recipes that match.</p>
             <p>You can see the test results in the top menu</p>
         </div>
     </div>

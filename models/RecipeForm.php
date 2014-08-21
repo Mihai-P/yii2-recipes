@@ -11,7 +11,7 @@ use Goodby\CSV\Import\Standard\Interpreter;
 use Goodby\CSV\Import\Standard\LexerConfig;        
 
 /**
- * ContactForm is the model behind the contact form.
+ * RecipeForm is the model behind the recipe form.
  */
 class RecipeForm extends Model
 {
@@ -119,9 +119,8 @@ class RecipeForm extends Model
     }
 
     /**
-     * Sends an email to the specified email address using the information collected by this model.
-     * @param  string  $email the target email address
-     * @return boolean whether the model passes validation
+     * Find the recipes that can be cooked with the content of the fridge
+     * @return array the recipes that can be cooked
      */
     public function findRecipes()
     {
