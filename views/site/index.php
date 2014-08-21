@@ -49,7 +49,6 @@ $this->params['breadcrumbs'][] = $this->title;
                     'options' => ['accept' => 'text/csv']
                 ])->hint($model->filename ? 'You have already uploaded the file ' . $model->filename . ' - ' . Html::a('remove', '#recipeform-filename', ['class' => 'remove-filename']) : '') ?>
                 
-                <?//= $form->field($model, 'file')->fileInput()->hint($model->filename ? 'You have already uploaded the file ' . $model->filename . ' - ' . Html::a('remove', '#recipeform-filename', ['class' => 'remove-filename']) : '') ?>
                 <?= $form->field($model, 'url')->hint('Insert either the URL of the actual JSON response') ?>
                 <?= $form->field($model, 'text')->textArea(['rows' => 12]) ?>
                 <div class="form-group">
