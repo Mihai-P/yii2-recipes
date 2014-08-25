@@ -25,7 +25,7 @@ class SiteController extends Controller
     {
         $model = new RecipeForm();
         $recipe = false;
-        if (Yii::$app->request->isPost) {
+        if (Yii::$app->request->post()) {
             $model->load(Yii::$app->request->post());
             $model->file = UploadedFile::getInstance($model, 'file');
 
