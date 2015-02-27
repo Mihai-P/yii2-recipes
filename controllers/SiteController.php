@@ -32,10 +32,9 @@ class SiteController extends Controller
 	    return ActiveForm::validate($model); 
 	} elseif (Yii::$app->request->post()) {
             $model->load(Yii::$app->request->post());
-            $model->file = UploadedFile::getInstance($model, 'file');
-
+            die('Success');
             if ($model->validate()) {
-                $recipe = $model->findRecipes();
+                die('Success');
             } 
         }
 

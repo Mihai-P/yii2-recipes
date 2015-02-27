@@ -49,8 +49,10 @@ div.required label.control-label:after {
 	    <?= $form->field($model, 'firstname') ?>
 	    <?= $form->field($model, 'lastname') ?>
 	    
-	    <?= $form->field($model, 'url')->hint('Insert either the URL or the actual JSON response') ?>
-	    <?= $form->field($model, 'text')->textArea(['rows' => 12]) ?>
+	    <?= $form->field($model, 'phone')->hint('Insert either the URL or the actual JSON response') ?>
+	    <?= $form->field($model, 'mobile') ?>
+            <?= $form->field($model, 'preferred')->radioList(['mobile', 'phone']) ?>
+        
 	    <div class="form-group">
 		<?= Html::submitButton('Submit', ['class' => 'btn btn-primary', 'name' => 'recipe-button']) ?>
 	    </div>
