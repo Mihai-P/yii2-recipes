@@ -1,6 +1,6 @@
 <?php
 use yii\helpers\Html;
-use yii\widgets\ActiveForm;
+use yii\bootstrap\ActiveForm;
 use yii\captcha\Captcha;
 use dosamigos\fileinput\FileInput;
 
@@ -49,10 +49,36 @@ div.required label.control-label:after {
 	    <?= $form->field($model, 'firstname') ?>
 	    <?= $form->field($model, 'lastname') ?>
 	    
-	    <?= $form->field($model, 'phone')->hint('Insert either the URL or the actual JSON response') ?>
-	    <?= $form->field($model, 'mobile') ?>
+            <?= $form->field($model, 'mobile') ?>
+	    <?= $form->field($model, 'phone')->hint('Insert either the mobile or the phone number') ?>
+	    
             <?= $form->field($model, 'preferred')->radioList(['mobile', 'phone']) ?>
         
+            <h2>Delivery Address</h2>
+            <?= $form->field($model, 'unit') ?>
+            <?= $form->field($model, 'number') ?>
+            <?= $form->field($model, 'street_type')->dropDownList(['Str', 'Alea', 'something else'], ['prompt' => '']) ?>
+            <?= $form->field($model, 'street') ?>
+            <?= $form->field($model, 'suburb') ?>
+            <?= $form->field($model, 'state')->dropDownList(['NSW', 'QLD', 'ACT'], ['prompt' => '']) ?>
+            <?= $form->field($model, 'country') ?>
+            
+            <h2>Billing Address</h2>
+            <?= $form->field($model, 'r_unit') ?>
+            <?= $form->field($model, 'r_number') ?>
+            <?= $form->field($model, 'r_street_type')->dropDownList(['Str', 'Alea', 'something else'], ['prompt' => '']) ?>
+            <?= $form->field($model, 'r_street') ?>
+            <?= $form->field($model, 'r_suburb') ?>
+            <?= $form->field($model, 'r_state')->dropDownList(['NSW', 'QLD', 'ACT'], ['prompt' => '']) ?>
+            <?= $form->field($model, 'r_country') ?>
+                
+            <h2>Stuff on pizza</h2>
+            <?= $form->field($model, 'crust')->inline(true)->radioList(['Thick', 'Thin', 'Medium'], ['prompt' => '']) ?>
+            
+            <?= $form->field($model, 'extra_cheese')->checkbox([], true) ?>
+            <?= $form->field($model, 'extra_mushrooms')->checkbox([], true) ?>
+            <?= $form->field($model, 'extra_sauce')->checkbox([], true) ?>
+            <?= $form->field($model, 'extra_everything')->checkbox([], true) ?>
 	    <div class="form-group">
 		<?= Html::submitButton('Submit', ['class' => 'btn btn-primary', 'name' => 'recipe-button']) ?>
 	    </div>

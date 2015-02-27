@@ -25,6 +25,7 @@ class RecipeForm extends Model
     
     
     public $unit;
+    public $number;
     public $street_type;
     public $street;
     public $suburb;
@@ -33,12 +34,19 @@ class RecipeForm extends Model
     public $country;
 
     public $r_unit;
+    public $r_number;
     public $r_street_type;
     public $r_street;
     public $r_suburb;
     public $r_postcode;
     public $r_state;
     public $r_country;
+    
+    public $crust;
+    public $extra_cheese;
+    public $extra_sauce;
+    public $extra_mushrooms;
+    public $extra_everything;
 
     
     
@@ -52,9 +60,12 @@ class RecipeForm extends Model
             [['title', 'firstname', 'lastname'], 'required'],
             [['preferred'], 'required'],
             
-            [['unit', 'street_type', 'street', 'suburb', 'postcode', 'state', 'country'], 'required'],
-            [['r_unit', 'r_street_type', 'r_street', 'r_suburb', 'r_postcode', 'r_state', 'r_country'], 'required'],
-            ['url', 'url'],
+            [['number', 'street_type', 'street', 'suburb', 'postcode', 'state', 'country'], 'required'],
+            [['r_number', 'r_street_type', 'r_street', 'r_suburb', 'r_postcode', 'r_state', 'r_country'], 'required'],
+            [['crust', 'extra_sauce'], 'required'],
+            [['extra_sauce'], 'integer', 'min' => '1'],
+            [['extra_cheese', 'extra_mushrooms', 'extra_everything'], 'safe'],
+            
             [['phone'], 'required', 
                 'when' => function($model) {
                     return empty($model->mobile);
