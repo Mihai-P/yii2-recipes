@@ -18,8 +18,6 @@ class RecipeForm extends Model
     public $title;
     public $firstname;
     public $lastname;
-    public $file;
-    public $filename;
     public $url;
     public $text;
     public $recipes;
@@ -35,10 +33,6 @@ class RecipeForm extends Model
             [['title', 'firstname', 'lastname'], 'required'],
             [['filename'], 'safe'],
             ['url', 'url'],
-            [['file'], 'required', 'when' => function($model) {
-                    return empty($model->filename);
-                }, ],
-            [['file'], 'file', 'extensions' => 'csv', 'checkExtensionByMimeType' => false],
             [['text'], 'required', 
                 'when' => function($model) {
                     return empty($model->url);

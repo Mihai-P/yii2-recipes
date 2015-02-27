@@ -42,16 +42,10 @@ div.required label.control-label:after {
         <div class="col-lg-5">
             <?php $form = ActiveForm::begin([
                 'id' => 'recipe-form', 
-                'options' => ['enctype'=>'multipart/form-data'],
 		'validateOnChange' => true,
 		'enableClientValidation' => false,
 		'enableAjaxValidation' => true,
             ]); ?>
-                <?= $form->field($model, 'filename', array('template' => "{input}"))->hiddenInput() ?>
-                <?php  echo $form->field($model, 'file')->widget(FileInput::className(), [
-                    'model' => $model,
-                    'options' => ['accept' => 'text/csv']
-                ])->hint($model->filename ? 'You have already uploaded the file ' . $model->filename . ' - ' . Html::a('remove', '#recipeform-filename', ['class' => 'remove-filename']) : '') ?>
                 <?= $form->field($model, 'title')->dropDownList(['Mr.', 'Mrs.', 'Miss'], ['prompt' => '']) ?>
                 <?= $form->field($model, 'firstname') ?>
                 <?= $form->field($model, 'lastname') ?>
