@@ -43,9 +43,9 @@ div.required label.control-label:after {
             <?php $form = ActiveForm::begin([
                 'id' => 'recipe-form', 
                 'options' => ['enctype'=>'multipart/form-data'],
-                'enableClientValidation' => true,
-                'enableAjaxValidation' => true,
-                'validateOnChange' => true,
+		'validateOnChange' => true,
+		'enableClientValidation' => false,
+		'enableAjaxValidation' => true,
             ]); ?>
                 <?= $form->field($model, 'filename', array('template' => "{input}"))->hiddenInput() ?>
                 <?php  echo $form->field($model, 'file')->widget(FileInput::className(), [
