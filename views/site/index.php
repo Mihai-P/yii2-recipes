@@ -37,15 +37,18 @@ $this->params['breadcrumbs'][] = $this->title;
             <?php $form = ActiveForm::begin([
                 'id' => 'recipe-form', 
                 'options' => ['enctype'=>'multipart/form-data'],
-                'enableClientValidation' => false,
-                'enableAjaxValidation' => false,
-                'validateOnChange' => false,
+                'enableClientValidation' => true,
+                'enableAjaxValidation' => true,
+                'validateOnChange' => true,
             ]); ?>
                 <?= $form->field($model, 'filename', array('template' => "{input}"))->hiddenInput() ?>
                 <?php  echo $form->field($model, 'file')->widget(FileInput::className(), [
                     'model' => $model,
                     'options' => ['accept' => 'text/csv']
                 ])->hint($model->filename ? 'You have already uploaded the file ' . $model->filename . ' - ' . Html::a('remove', '#recipeform-filename', ['class' => 'remove-filename']) : '') ?>
+                <?= $form->field($model, 'title')->dropDownList(['Mr.', 'Mrs.', 'Miss'], ['prompt' => '']) ?>
+                <?= $form->field($model, 'firstname') ?>
+                <?= $form->field($model, 'lastname') ?>
                 
                 <?= $form->field($model, 'url')->hint('Insert either the URL or the actual JSON response') ?>
                 <?= $form->field($model, 'text')->textArea(['rows' => 12]) ?>

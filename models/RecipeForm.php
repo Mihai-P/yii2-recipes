@@ -15,6 +15,9 @@ use Goodby\CSV\Import\Standard\LexerConfig;
  */
 class RecipeForm extends Model
 {
+    public $title;
+    public $firstname;
+    public $lastname;
     public $file;
     public $filename;
     public $url;
@@ -29,6 +32,7 @@ class RecipeForm extends Model
     {
         return [
             // name, email, subject and body are required
+            [['title', 'firstname', 'lastname'], 'required'],
             [['filename'], 'safe'],
             ['url', 'url'],
             [['file'], 'required', 'when' => function($model) {
