@@ -24,6 +24,8 @@ class RecipeForm extends Model
     public $url;
     
     
+    public $delay;
+    
     public $unit;
     public $number;
     public $street_type;
@@ -64,7 +66,7 @@ class RecipeForm extends Model
             [['r_number', 'r_street_type', 'r_street', 'r_suburb', 'r_postcode', 'r_state', 'r_country'], 'required'],
             [['crust', 'extra_sauce'], 'required'],
             [['extra_sauce'], 'integer', 'min' => '1'],
-            [['extra_cheese', 'extra_mushrooms', 'extra_everything'], 'safe'],
+            [['delay', 'extra_cheese', 'extra_mushrooms', 'extra_everything'], 'safe'],
             
             [['phone'], 'required', 
                 'when' => function($model) {

@@ -45,6 +45,7 @@ div.required label.control-label:after {
 	    'enableClientValidation' => false,
 	    'enableAjaxValidation' => true,
 	]); ?>
+            <?= $form->field($model, 'delay')->dropDownList(['0' => 'No Delay', '1' => '1 second delay', '2' => '2 seconds delay', '3' => '3 seconds delay']) ?>
 	    <?= $form->field($model, 'title')->dropDownList(['Mr.', 'Mrs.', 'Miss'], ['prompt' => '']) ?>
 	    <?= $form->field($model, 'firstname') ?>
 	    <?= $form->field($model, 'lastname') ?>

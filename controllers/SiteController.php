@@ -28,6 +28,7 @@ class SiteController extends Controller
         $recipe = false;
 	if (Yii::$app->request->isAjax)  { 
 	    $model->load(Yii::$app->request->post()); 
+            sleep($model->delay);
 	    Yii::$app->response->format = Response::FORMAT_JSON; 
 	    return ActiveForm::validate($model); 
 	} elseif (Yii::$app->request->post()) {
