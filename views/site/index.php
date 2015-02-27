@@ -31,7 +31,13 @@ $this->params['breadcrumbs'][] = $this->title;
             } 
         }
     ?>
-
+<style>
+/* REQUIRED FIELDS */
+div.required label.control-label:after {
+    content: " *";
+    color: red;
+}
+</style>
     <div class="row">
         <div class="col-lg-5">
             <?php $form = ActiveForm::begin([
