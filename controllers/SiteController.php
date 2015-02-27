@@ -9,6 +9,7 @@ use app\models\RecipeForm;
 use yii\web\UploadedFile;
 use yii\helpers\Json;
 use yii\widgets\ActiveForm;
+use yii\web\Response;
 
 class SiteController extends Controller
 {
