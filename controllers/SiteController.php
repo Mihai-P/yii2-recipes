@@ -25,7 +25,11 @@ class SiteController extends Controller
     {
         $model = new RecipeForm();
         $recipe = false;
-        if (Yii::$app->request->post()) {
+	if (Yii::$app->request->isAjax)  { 
+	    $model->load(Yii::$app->request->post()); 
+	    Yii::$app->response->format = Response::FORMAT_JSON; 
+	    return ActiveForm::validate($model); 
+	} elseif (Yii::$app->request->post()) {
             $model->load(Yii::$app->request->post());
             $model->file = UploadedFile::getInstance($model, 'file');
 
